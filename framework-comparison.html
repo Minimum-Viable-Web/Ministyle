@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministyle — Framework Comparison</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link id="framework-css" rel="stylesheet" href="ministyle.css">
+    <style>
+        .fw-bar{position:fixed;top:0;left:0;right:0;z-index:9999;background:#1A1A1A;padding:.5rem 1rem;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap;font-family:system-ui,sans-serif;font-size:.85rem;box-shadow:0 2px 8px rgba(0,0,0,.3)}
+        .fw-bar span{color:#FFF;font-weight:700;margin-right:.5rem}
+        .fw-btn{padding:.4rem .8rem;border:1px solid #555;border-radius:6px;background:#333;color:#CCC;cursor:pointer;font:inherit;transition:background .15s}
+        .fw-btn:hover{background:#444}
+        .fw-btn.active{background:#0056B3;color:#FFF;border-color:#0056B3}
+        .fw-info{color:#999;margin-left:auto;font-size:.75rem}
+        body{padding-top:3.5rem!important}
+    </style>
+</head>
+<body>
+
+    <div class="fw-bar" role="toolbar" aria-label="Framework switcher">
+        <span>Compare:</span>
+        <button class="fw-btn active" onclick="switchCSS(this,'style.css')">Ministyle</button>
+        <button class="fw-btn" onclick="switchCSS(this,'https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css')">Pico CSS</button>
+        <button class="fw-btn" onclick="switchCSS(this,'https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css')">Water.css</button>
+        <button class="fw-btn" onclick="switchCSS(this,'https://cdn.jsdelivr.net/npm/simpledotcss@2/simple.min.css')">Simple.css</button>
+        <button class="fw-btn" onclick="switchCSS(this,'https://cdn.jsdelivr.net/npm/mvp.css@1/mvp.css')">MVP.css</button>
+        <button class="fw-btn" onclick="switchCSS(this,'https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css')">Bootstrap</button>
+        <button class="fw-btn" onclick="switchCSS(this,'')">No CSS</button>
+        <span class="fw-info" id="fw-info">Ministyle (~14 KB)</span>
+    </div>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+
+    <header>
+        <nav aria-label="Main">
+            <strong>Framework Comparison</strong>
+        </nav>
+    </header>
+
+    <main id="main">
+        <h1>Kitchen Sink Comparison</h1>
+        <p>Same semantic HTML rendered by different CSS frameworks. Switch above to compare. Sections using Ministyle-specific classes (cards, badges, grids, alerts) will appear unstyled in classless frameworks — that is the comparison.</p>
+
+        <hr>
+
+        <!-- 1. TYPOGRAPHY -->
+        <section id="typography">
+            <h2>Typography</h2>
+
+            <h3>Headings</h3>
+            <h1>Heading 1</h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+
+            <h3>Inline Elements</h3>
+            <p><strong>Strong</strong>, <em>emphasis</em>, <small>small</small>, <mark>marked</mark>, <del>deleted</del>, <ins>inserted</ins>, <abbr title="Abbreviation">ABBR</abbr>, <code>code</code>, <kbd>Ctrl+S</kbd>, <samp>sample</samp>, <var>variable</var>, H<sub>2</sub>O, E=mc<sup>2</sup>, <s>struck</s>, <u>underline</u>, <b>bold</b>, <i>italic</i>, <cite>citation</cite>, <dfn>definition</dfn>, <time datetime="2026-02-11">Feb 11, 2026</time>, <q>inline quote</q>.</p>
+
+            <h3>Blockquote</h3>
+            <blockquote>
+                <p>"Design is not just what it looks like. Design is how it works."</p>
+                <cite>— Steve Jobs</cite>
+            </blockquote>
+
+            <h3>Code Block</h3>
+            <pre><code>function greet(name) {
+  return `Hello, ${name}!`;
+}
+greet("Ministyle");</code></pre>
+
+            <h3>Lists</h3>
+            <ul>
+                <li>Unordered item one</li>
+                <li>Unordered item two
+                    <ul><li>Nested A</li><li>Nested B</li></ul>
+                </li>
+                <li>Unordered item three</li>
+            </ul>
+            <ol>
+                <li>Ordered first</li>
+                <li>Ordered second</li>
+                <li>Ordered third</li>
+            </ol>
+            <dl>
+                <dt>Definition Term</dt>
+                <dd>Definition description with supporting details.</dd>
+                <dt>Another Term</dt>
+                <dd>Another description.</dd>
+            </dl>
+
+            <hr>
+        </section>
+
+        <!-- 2. FORMS -->
+        <section id="forms">
+            <h2>Forms</h2>
+            <form action="#" method="get" novalidate>
+                <fieldset>
+                    <legend>Text Inputs</legend>
+                    <label for="f-text">Text (required)</label>
+                    <input type="text" id="f-text" placeholder="Enter text" required>
+                    <label for="f-email">Email</label>
+                    <input type="email" id="f-email" placeholder="user@example.com">
+                    <label for="f-password">Password</label>
+                    <input type="password" id="f-password" placeholder="Password">
+                    <label for="f-search">Search</label>
+                    <input type="search" id="f-search" placeholder="Search...">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Other Inputs</legend>
+                    <label for="f-date">Date</label>
+                    <input type="date" id="f-date">
+                    <label for="f-range">Range</label>
+                    <input type="range" id="f-range" min="0" max="100" value="50">
+                    <label for="f-color">Color</label>
+                    <input type="color" id="f-color" value="#0056B3">
+                    <label for="f-file">File</label>
+                    <input type="file" id="f-file">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Selection</legend>
+                    <label for="f-select">Select</label>
+                    <select id="f-select">
+                        <option value="">Choose option</option>
+                        <optgroup label="Group A"><option>Option 1</option><option>Option 2</option></optgroup>
+                        <optgroup label="Group B"><option>Option 3</option><option>Option 4</option></optgroup>
+                    </select>
+                    <label for="f-textarea">Textarea</label>
+                    <textarea id="f-textarea" placeholder="Write something..."></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Checkboxes &amp; Radios</legend>
+                    <label><input type="checkbox" name="check" value="a"> Option A</label>
+                    <label><input type="checkbox" name="check" value="b" checked> Option B (checked)</label>
+                    <label><input type="checkbox" name="check" value="c" disabled> Option C (disabled)</label>
+                    <label><input type="radio" name="radio" value="x"> Choice X</label>
+                    <label><input type="radio" name="radio" value="y" checked> Choice Y (checked)</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>States</legend>
+                    <label for="f-dis">Disabled</label>
+                    <input type="text" id="f-dis" value="Cannot edit" disabled>
+                    <label for="f-req">Required</label>
+                    <input type="text" id="f-req" placeholder="Required..." required>
+                </fieldset>
+
+                <button type="submit">Submit</button>
+                <button type="button">Button</button>
+                <input type="reset" value="Reset">
+                <button type="button" disabled>Disabled</button>
+            </form>
+        </section>
+
+        <!-- 3. TABLE -->
+        <section id="data">
+            <h2>Table</h2>
+            <table>
+                <caption>Sample Data Table</caption>
+                <thead>
+                    <tr>
+                        <th scope="col">Feature</th>
+                        <th scope="col">Standard</th>
+                        <th scope="col">Value</th>
+                        <th scope="col">Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><th scope="row">Text Contrast</th><td>WCAG AAA</td><td>14.9:1</td><td>Pass</td></tr>
+                    <tr><th scope="row">Focus Indicator</th><td>WCAG 2.2</td><td>3px</td><td>Pass</td></tr>
+                    <tr><th scope="row">Touch Targets</th><td>WCAG 2.5.8</td><td>48px</td><td>Pass</td></tr>
+                    <tr><th scope="row">Motion</th><td>WCAG 2.3.3</td><td>Respected</td><td>Pass</td></tr>
+                </tbody>
+                <tfoot>
+                    <tr><th scope="row">Overall</th><td colspan="2">All met</td><td>Pass</td></tr>
+                </tfoot>
+            </table>
+        </section>
+
+        <!-- 4. INTERACTIVE -->
+        <section id="interactive">
+            <h2>Interactive</h2>
+
+            <h3>Accordion</h3>
+            <details>
+                <summary>What is this page?</summary>
+                <p>A comparison of CSS frameworks using identical semantic HTML.</p>
+            </details>
+            <details>
+                <summary>Why does it look different?</summary>
+                <p>Each framework applies its own default styles to the same elements.</p>
+            </details>
+            <details open>
+                <summary>Which is best?</summary>
+                <p>It depends on your needs. Switch between frameworks above to compare.</p>
+            </details>
+
+            <h3>Dialog</h3>
+            <button onclick="document.getElementById('demo-dialog').showModal()">Open Dialog</button>
+            <dialog id="demo-dialog">
+                <h3>Dialog Title</h3>
+                <p>Native HTML dialog element.</p>
+                <button onclick="this.closest('dialog').close()">Close</button>
+            </dialog>
+
+            <h3>Progress &amp; Meter</h3>
+            <label for="f-progress">Progress (70%)</label>
+            <progress id="f-progress" value="70" max="100">70%</progress>
+            <label for="f-meter">Meter (0.7)</label>
+            <meter id="f-meter" value="0.7" min="0" max="1" low="0.3" high="0.7" optimum="0.8">70%</meter>
+        </section>
+
+        <!-- 5. MEDIA -->
+        <section id="media">
+            <h2>Media</h2>
+            <figure>
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Crect fill='%23CCC' width='800' height='400'/%3E%3Ctext x='400' y='200' text-anchor='middle' dominant-baseline='middle' font-family='system-ui' font-size='24' fill='%23666'%3E800 x 400%3C/text%3E%3C/svg%3E" alt="Placeholder image">
+                <figcaption>Responsive image in a figure element.</figcaption>
+            </figure>
+            <figure>
+                <audio controls aria-label="Audio">
+                    <source src="" type="audio/mpeg">
+                    Your browser does not support audio.
+                </audio>
+                <figcaption>Audio with native controls.</figcaption>
+            </figure>
+        </section>
+
+        <!-- 6. MINISTYLE-ONLY COMPONENTS -->
+        <section id="components">
+            <h2>Ministyle-Only Components</h2>
+            <p><em>These use Ministyle utility classes. They will appear unstyled in other frameworks — that is the point.</em></p>
+
+            <h3>Cards in Grid</h3>
+            <div class="grid grid-3">
+                <div class="card"><h4>Card One</h4><p>Styled with <code>.card</code> class.</p></div>
+                <div class="card"><h4>Card Two</h4><p>Shadow and border radius from framework.</p></div>
+                <div class="card bg-link"><h4>Tinted</h4><p>Uses <code>.bg-link</code> utility.</p></div>
+            </div>
+
+            <h3>Alerts</h3>
+            <div class="alert alert-info"><strong>Info:</strong> Informational message.</div>
+            <div class="alert alert-ok"><strong>Success:</strong> Operation completed.</div>
+            <div class="alert alert-warn"><strong>Warning:</strong> Review before continuing.</div>
+            <div class="alert alert-err"><strong>Error:</strong> Something went wrong.</div>
+
+            <h3>Badges</h3>
+            <p>
+                <span class="badge">Default</span>
+                <span class="badge badge-ok">Success</span>
+                <span class="badge badge-err">Error</span>
+                <span class="badge badge-outline">Outline</span>
+            </p>
+
+            <h3>Pagination</h3>
+            <nav aria-label="Pagination">
+                <ul class="pagination">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><span aria-current="page">2</span></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                </ul>
+            </nav>
+
+            <h3>Breadcrumbs</h3>
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Section</a></li>
+                    <li><a href="#" aria-current="page">Page</a></li>
+                </ol>
+            </nav>
+
+            <h3>Tooltips</h3>
+            <p>Hover: <abbr data-tooltip="CSS-only tooltip" tabindex="0">tooltip text</abbr></p>
+
+            <h3>Divider</h3>
+            <div class="divider">or</div>
+
+            <h3>Spinner</h3>
+            <p><span class="spinner"></span> <span class="spinner spinner-lg"></span></p>
+
+            <h3>Color Utilities</h3>
+            <p class="text-ok">Success text</p>
+            <p class="text-err">Error text</p>
+            <p class="text-warn">Warning text</p>
+        </section>
+
+        <!-- 7. SEMANTIC -->
+        <section id="layout">
+            <h2>Semantic Layout</h2>
+            <article>
+                <h3>Article</h3>
+                <p>Self-contained distributable content.</p>
+            </article>
+            <aside>
+                <strong>Aside:</strong> Supplementary content.
+            </aside>
+            <address>Contact: <a href="mailto:hello@ministyle.dev">hello@ministyle.dev</a></address>
+        </section>
+    </main>
+
+    <footer>
+        <p>Framework Comparison — same HTML, different stylesheets.</p>
+        <p><a href="#top">Back to top</a></p>
+    </footer>
+
+    <script>
+    const sizes={
+        'style.css':'Ministyle (~14 KB)',
+        'https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css':'Pico CSS (~50 KB)',
+        'https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css':'Water.css (~4 KB)',
+        'https://cdn.jsdelivr.net/npm/simpledotcss@2/simple.min.css':'Simple.css (~5 KB)',
+        'https://cdn.jsdelivr.net/npm/mvp.css@1/mvp.css':'MVP.css (~7 KB)',
+        'https://cdn.jsdelivr.net/npm/bootstrap@5/dist/css/bootstrap.min.css':'Bootstrap 5 (~160 KB)',
+        '':'No CSS (browser defaults)'
+    };
+    function switchCSS(btn,url){
+        document.getElementById('framework-css').href=url;
+        document.querySelectorAll('.fw-btn').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('fw-info').textContent=sizes[url]||url;
+    }
+    </script>
+
+</body>
+</html>

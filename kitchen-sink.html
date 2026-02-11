@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en" id="top">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ministyle — Kitchen Sink</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="ministyle.css">
+</head>
+<body>
+
+    <a href="#main" class="skip-link">Skip to main content</a>
+    <input type="checkbox" id="toast-demo" class="toast-toggle">
+    <div class="toast">Operation completed. <label for="toast-demo" class="toast-close" aria-label="Close">&times;</label></div>
+
+    <header>
+        <nav aria-label="Main">
+            <strong>Ministyle</strong>
+            <ul>
+                <li><a href="#typography">Typography</a></li>
+                <li><a href="#forms">Forms</a></li>
+                <li><a href="#data">Data</a></li>
+                <li><a href="#nav-components">Navigation</a></li>
+                <li><a href="#content">Content</a></li>
+                <li><a href="#interactive">Interactive</a></li>
+                <li><a href="#utilities">Utilities</a></li>
+                <li><a href="#media">Media</a></li>
+            </ul>
+            <button onclick="let c=document.documentElement.classList;c.toggle(matchMedia('(prefers-color-scheme:dark)').matches?'light-mode':'dark-mode')" aria-label="Toggle dark mode">Toggle Theme</button>
+        </nav>
+    </header>
+
+    <main id="main">
+        <h1>Kitchen Sink</h1>
+        <p>Every element, component, and combination in <mark>Ministyle</mark>.</p>
+
+        <hr>
+
+        <!-- 1. TYPOGRAPHY -->
+        <section id="typography">
+            <h2>Typography</h2>
+
+            <h3>Headings</h3>
+            <h1>Heading 1 <span class="badge">New</span></h1>
+            <h2>Heading 2</h2>
+            <h3>Heading 3</h3>
+            <h4>Heading 4</h4>
+            <h5>Heading 5</h5>
+            <h6>Heading 6</h6>
+
+            <h3>Inline Elements</h3>
+            <p><strong>Strong</strong>, <em>emphasis</em>, <small>small</small>, <mark>marked</mark>, <del>deleted</del>, <ins>inserted</ins>, <abbr title="Abbreviation">ABBR</abbr>, <code>code</code>, <kbd>Ctrl+S</kbd>, <samp>sample</samp>, <var>variable</var>, H<sub>2</sub>O, E=mc<sup>2</sup>, <s>struck</s>, <u>underline</u>, <b>bold</b>, <i>italic</i>, <cite>citation</cite>, <dfn>definition</dfn>, <time datetime="2026-02-11">Feb 11, 2026</time>, <q>inline quote</q>.</p>
+
+            <h3>Blockquote</h3>
+            <blockquote>
+                <p>"Design is not just what it looks like. Design is how it works."</p>
+                <cite>— Steve Jobs</cite>
+            </blockquote>
+
+            <h3>Code Block</h3>
+            <pre><code>function greet(name) {
+  return `Hello, ${name}!`;
+}
+greet("Ministyle");</code></pre>
+
+            <h3>Lists</h3>
+            <div class="grid grid-2">
+                <div>
+                    <h4>Unordered</h4>
+                    <ul>
+                        <li>Item one</li>
+                        <li>Item two
+                            <ul><li>Nested A</li><li>Nested B</li></ul>
+                        </li>
+                        <li>Item three</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Ordered</h4>
+                    <ol>
+                        <li>First step</li>
+                        <li>Second step</li>
+                        <li>Third step</li>
+                    </ol>
+                    <h4>Definition</h4>
+                    <dl>
+                        <dt>Golden Ratio</dt>
+                        <dd>1.618 — type scale and line-height.</dd>
+                        <dt>Fitts's Law</dt>
+                        <dd>Larger targets are faster to reach.</dd>
+                    </dl>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. FORMS -->
+        <section id="forms">
+            <h2>Forms &amp; Inputs</h2>
+
+            <form action="#" method="get" novalidate>
+                <div class="grid grid-2">
+                    <fieldset>
+                        <legend>Text Inputs</legend>
+                        <label for="f-text">Text <small>(required)</small></label>
+                        <input type="text" id="f-text" placeholder="Enter text" required>
+                        <label for="f-email">Email</label>
+                        <input type="email" id="f-email" placeholder="user@example.com">
+                        <label for="f-password">Password</label>
+                        <input type="password" id="f-password" placeholder="Password">
+                        <label for="f-url">URL</label>
+                        <input type="url" id="f-url" placeholder="https://example.com">
+                        <label for="f-tel">Phone</label>
+                        <input type="tel" id="f-tel" placeholder="+1 (555) 123-4567">
+                        <label for="f-number">Number</label>
+                        <input type="number" id="f-number" placeholder="42" min="0" max="100">
+                        <label for="f-search">Search</label>
+                        <input type="search" id="f-search" placeholder="Search...">
+                    </fieldset>
+                    <fieldset>
+                        <legend>Date, Time &amp; Other</legend>
+                        <label for="f-date">Date</label>
+                        <input type="date" id="f-date">
+                        <label for="f-time">Time</label>
+                        <input type="time" id="f-time">
+                        <label for="f-datetime">Date &amp; Time</label>
+                        <input type="datetime-local" id="f-datetime">
+                        <label for="f-range">Range</label>
+                        <input type="range" id="f-range" min="0" max="100" value="50" oninput="this.nextElementSibling.value=this.value">
+                        <output>50</output>
+                        <label for="f-color">Color</label>
+                        <input type="color" id="f-color" value="#0056B3">
+                        <label for="f-file">File</label>
+                        <input type="file" id="f-file">
+                    </fieldset>
+                </div>
+
+                <div class="grid grid-2">
+                    <fieldset>
+                        <legend>Selection</legend>
+                        <label for="f-select">Select</label>
+                        <select id="f-select">
+                            <option value="">Choose option</option>
+                            <optgroup label="Group A"><option>Option 1</option><option>Option 2</option></optgroup>
+                            <optgroup label="Group B"><option>Option 3</option><option>Option 4</option></optgroup>
+                        </select>
+                        <label for="f-textarea">Textarea</label>
+                        <textarea id="f-textarea" placeholder="Write something..."></textarea>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Checkboxes &amp; Radios</legend>
+                        <label><input type="checkbox" name="check" value="a"> Option A</label>
+                        <label><input type="checkbox" name="check" value="b" checked> Option B (checked)</label>
+                        <label><input type="checkbox" name="check" value="c" disabled> Option C (disabled)</label>
+                        <label><input type="radio" name="radio" value="x"> Choice X</label>
+                        <label><input type="radio" name="radio" value="y" checked> Choice Y (checked)</label>
+                        <label><input type="radio" name="radio" value="z" disabled> Choice Z (disabled)</label>
+                    </fieldset>
+                </div>
+
+                <fieldset>
+                    <legend>Disabled States</legend>
+                    <div class="grid grid-3">
+                        <div><label for="f-dis-text">Disabled Input</label><input type="text" id="f-dis-text" value="Cannot edit" disabled></div>
+                        <div><label for="f-dis-select">Disabled Select</label><select id="f-dis-select" disabled><option>Disabled</option></select></div>
+                        <div><label for="f-dis-textarea">Disabled Textarea</label><textarea id="f-dis-textarea" disabled>Cannot edit</textarea></div>
+                    </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Validation States</legend>
+                    <p><small>Type in the fields to see validation indicators.</small></p>
+                    <div class="grid grid-2">
+                        <div><label for="f-req">Required Field</label><input type="text" id="f-req" placeholder="Required..." required></div>
+                        <div><label for="f-email-val">Email Validation</label><input type="email" id="f-email-val" placeholder="Must be valid email"></div>
+                    </div>
+                </fieldset>
+
+                <h3>Compact Form</h3>
+                <div class="card">
+                    <div class="form-row"><label for="f-in-name">Name</label><input type="text" id="f-in-name" placeholder="Full name"></div>
+                    <div class="form-row"><label for="f-in-email">Email</label><input type="email" id="f-in-email" placeholder="user@example.com"></div>
+                    <div class="form-row"><label for="f-in-role">Role</label><select id="f-in-role"><option>Developer</option><option>Designer</option><option>Manager</option></select></div>
+                </div>
+
+                <h3>Buttons</h3>
+                <p>
+                    <button class="btn-sm" type="button">Small</button>
+                    <button type="button">Medium</button>
+                    <button class="btn-lg" type="button">Large</button>
+                </p>
+                <p>
+                    <button type="submit">Submit</button>
+                    <button class="btn-outline" type="button">Outline</button>
+                    <input type="reset" value="Reset">
+                    <button type="button" disabled>Disabled</button>
+                </p>
+            </form>
+        </section>
+
+        <!-- 3. DATA -->
+        <section id="data">
+            <h2>Data</h2>
+            <div style="overflow-x:auto">
+                <table>
+                    <caption>Accessibility Compliance</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Feature</th>
+                            <th scope="col">Standard</th>
+                            <th scope="col">Value</th>
+                            <th scope="col">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><th scope="row">Text Contrast</th><td>WCAG AAA</td><td>14.9:1</td><td><span class="badge badge-ok">Pass</span></td></tr>
+                        <tr><th scope="row">Focus Indicator</th><td>WCAG 2.2</td><td>3px blue</td><td><span class="badge badge-ok">Pass</span></td></tr>
+                        <tr><th scope="row">Touch Targets</th><td>WCAG 2.5.8</td><td>48px min</td><td><span class="badge badge-ok">Pass</span></td></tr>
+                        <tr><th scope="row">Reduced Motion</th><td>WCAG 2.3.3</td><td>Respected</td><td><span class="badge badge-ok">Pass</span></td></tr>
+                        <tr><th scope="row">Color Scheme</th><td>WCAG 1.4.1</td><td>Light + Dark</td><td><span class="badge badge-ok">Pass</span></td></tr>
+                    </tbody>
+                    <tfoot>
+                        <tr><th scope="row">Overall</th><td colspan="2">All criteria met</td><td><span class="badge badge-ok">Pass</span></td></tr>
+                    </tfoot>
+                </table>
+            </div>
+        </section>
+
+        <!-- 4. NAVIGATION -->
+        <section id="nav-components">
+            <h2>Navigation</h2>
+
+            <h3>Tabs</h3>
+            <div class="tabs" role="tablist" aria-label="Example tabs">
+                <input type="radio" name="tabs" id="tab1" checked>
+                <label for="tab1" role="tab">Overview</label>
+                <input type="radio" name="tabs" id="tab2">
+                <label for="tab2" role="tab">Features</label>
+                <input type="radio" name="tabs" id="tab3">
+                <label for="tab3" role="tab">Usage</label>
+                <div role="tabpanel"><p>Ministyle is a minimal CSS framework with golden-ratio typography, WCAG AAA contrast, and automatic dark mode.</p></div>
+                <div role="tabpanel"><p>Classless-first design, CSS-only tabs and accordions, responsive tables, form validation, and button sizes.</p></div>
+                <div role="tabpanel"><p>Link <code>style.css</code> and write semantic HTML. Add utility classes like <code>.card</code> or <code>.grid-2</code> when needed.</p></div>
+            </div>
+
+            <h3>Pagination</h3>
+            <nav aria-label="Pagination">
+                <ul class="pagination">
+                    <li><a href="#" aria-label="Previous">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><span aria-current="page">2</span></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#" aria-label="Next">&raquo;</a></li>
+                </ul>
+            </nav>
+
+            <h3>Breadcrumbs</h3>
+            <nav aria-label="Breadcrumb">
+                <ol class="breadcrumb">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Components</a></li>
+                    <li><a href="#" aria-current="page">Breadcrumbs</a></li>
+                </ol>
+            </nav>
+        </section>
+
+        <!-- 5. CONTENT -->
+        <section id="content">
+            <h2>Content &amp; Layout</h2>
+
+            <h3>Cards</h3>
+            <div class="grid grid-3">
+                <div class="card">
+                    <h4>Basic Card</h4>
+                    <p>Simple content block with padding and shadow.</p>
+                </div>
+                <div class="card">
+                    <h4>Card with Badge <span class="badge">3</span></h4>
+                    <p>Badges work inline with headings and text.</p>
+                    <button class="btn-sm" type="button">Action</button>
+                </div>
+                <div class="card bg-link">
+                    <h4>Tinted Card</h4>
+                    <p>Combine <code>.card</code> with <code>.bg-link</code> for emphasis.</p>
+                </div>
+            </div>
+
+            <h3>Grid</h3>
+            <div class="grid grid-2">
+                <div class="card"><h4>Two Columns</h4><p>Collapses to single column below 18rem per item.</p></div>
+                <div class="card"><h4>Two Columns</h4><p>Uses <code>auto-fit</code> with <code>minmax</code> for fluid breakpoints.</p></div>
+            </div>
+            <div class="grid grid-3">
+                <div class="card"><p>Three</p></div>
+                <div class="card"><p>Column</p></div>
+                <div class="card"><p>Grid</p></div>
+            </div>
+
+            <h3>Alerts</h3>
+            <div class="alert alert-info"><strong>Info:</strong> Informational message.</div>
+            <div class="alert alert-ok"><strong>Success:</strong> Operation completed.</div>
+            <div class="alert alert-warn"><strong>Warning:</strong> Review before continuing.</div>
+            <div class="alert alert-err"><strong>Error:</strong> Something went wrong.</div>
+            <div class="alert"><strong>Neutral:</strong> Default alert style.</div>
+
+            <h3>Badges</h3>
+            <p>
+                <span class="badge">Default</span>
+                <span class="badge badge-ok">Success</span>
+                <span class="badge badge-err">Error</span>
+                <span class="badge badge-outline">Outline</span>
+                Notifications <span class="badge">12</span>
+            </p>
+
+            <h3>Color Utilities</h3>
+            <div class="grid grid-2">
+                <div>
+                    <p class="text-ok">Success text <code>.text-ok</code></p>
+                    <p class="text-err">Error text <code>.text-err</code></p>
+                    <p class="text-warn">Warning text <code>.text-warn</code></p>
+                    <p class="text-link">Link text <code>.text-link</code></p>
+                </div>
+                <div class="grid grid-2">
+                    <div class="bg-ok p-2"><strong>.bg-ok</strong></div>
+                    <div class="bg-err p-2"><strong>.bg-err</strong></div>
+                    <div class="bg-warn p-2"><strong>.bg-warn</strong></div>
+                    <div class="bg-link p-2"><strong>.bg-link</strong></div>
+                </div>
+            </div>
+
+            <h3>Container Queries</h3>
+            <p>The <code>.contain</code> class makes children respond to their parent width.</p>
+            <div class="grid grid-2">
+                <div class="contain" style="border:1px dashed var(--border);padding:1rem;border-radius:var(--r)">
+                    <h4>Narrow</h4>
+                    <div class="card"><p>Card padding tightens in narrow containers.</p></div>
+                </div>
+                <div class="contain" style="border:1px dashed var(--border);padding:1rem;border-radius:var(--r)">
+                    <h4>Wide</h4>
+                    <div class="form-row"><label for="cq-name">Name</label><input type="text" id="cq-name" placeholder="Label widens"></div>
+                </div>
+            </div>
+
+            <h3>Semantic Elements</h3>
+            <article>
+                <h4>Article</h4>
+                <p>Self-contained content that could be independently distributed.</p>
+            </article>
+            <aside>
+                <strong>Aside:</strong> Supplementary content with a left border accent (Gestalt: continuation).
+            </aside>
+            <address>Contact: <a href="mailto:hello@ministyle.dev">hello@ministyle.dev</a></address>
+        </section>
+
+        <!-- 6. INTERACTIVE -->
+        <section id="interactive">
+            <h2>Interactive</h2>
+
+            <h3>Accordion</h3>
+            <details>
+                <summary>What is Ministyle?</summary>
+                <p>A classless-first, minimal CSS framework. Zero dependencies, WCAG AAA, golden-ratio typography.</p>
+            </details>
+            <details>
+                <summary>How do I use it?</summary>
+                <p>Link <code>style.css</code> and write semantic HTML. No classes needed for basic usage.</p>
+            </details>
+            <details open>
+                <summary>Dark mode?</summary>
+                <p>Automatic via <code>prefers-color-scheme</code> and manual via the Toggle Theme button.</p>
+            </details>
+
+            <div class="grid grid-2">
+                <div>
+                    <h3>Dialog</h3>
+                    <button onclick="document.getElementById('demo-dialog').showModal()">Open Dialog</button>
+                    <dialog id="demo-dialog">
+                        <h3>Dialog Title</h3>
+                        <p>Native <code>&lt;dialog&gt;</code> element. No JS framework needed.</p>
+                        <button onclick="this.closest('dialog').close()">Close</button>
+                    </dialog>
+
+                    <h3>Toast</h3>
+                    <button type="button" onclick="document.getElementById('toast-demo').checked=true">Show Toast</button>
+                    <p><small>Appears bottom-right, dismiss with close button.</small></p>
+                </div>
+                <div>
+                    <h3>Progress &amp; Meter</h3>
+                    <label for="f-progress">Progress (70%)</label>
+                    <progress id="f-progress" value="70" max="100">70%</progress>
+                    <label for="f-meter">Meter (0.7)</label>
+                    <meter id="f-meter" value="0.7" min="0" max="1" low="0.3" high="0.7" optimum="0.8">70%</meter>
+                </div>
+            </div>
+
+            <h3>Tooltips</h3>
+            <p>
+                Hover over <abbr data-tooltip="Tooltip on text" tabindex="0">this text</abbr>,
+                <button class="btn-sm" data-tooltip="Tooltip on button" type="button">this button</button>, or
+                <a href="#" data-tooltip="Tooltip on link">this link</a>.
+            </p>
+        </section>
+
+        <!-- 7. UTILITIES -->
+        <section id="utilities">
+            <h2>Utilities</h2>
+
+            <h3>Spacing</h3>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4>Margin</h4>
+                    <div class="bg-link p-2 mb-1">mb-1 (0.25rem)</div>
+                    <div class="bg-link p-2 mb-2">mb-2 (0.5rem)</div>
+                    <div class="bg-link p-2 mb-3">mb-3 (1rem)</div>
+                    <div class="bg-link p-2 mb-0">mb-0 (none)</div>
+                </div>
+                <div class="card">
+                    <h4>Padding</h4>
+                    <div class="bg-link p-1 mb-1">p-1 (0.25rem)</div>
+                    <div class="bg-link p-2 mb-1">p-2 (0.5rem)</div>
+                    <div class="bg-link p-3 mb-1">p-3 (1rem)</div>
+                    <div class="bg-link p-4">p-4 (2rem)</div>
+                </div>
+            </div>
+
+            <h3>Text Alignment</h3>
+            <div class="card text-left mb-2">Left aligned (default)</div>
+            <div class="card text-center mb-2">Center aligned</div>
+            <div class="card text-right mb-2">Right aligned</div>
+
+            <h3>Display &amp; Width</h3>
+            <p><code>.hidden</code> <code>.block</code> <code>.inline</code> <code>.flex</code> <code>.inline-flex</code> <code>.w-full</code> <code>.w-auto</code></p>
+            <div class="flex" style="gap:.5rem">
+                <button class="btn-sm w-full" type="button">w-full button</button>
+                <button class="btn-sm w-full" type="button">w-full button</button>
+            </div>
+
+            <h3>Divider</h3>
+            <div class="divider">or</div>
+            <div class="divider">Section Break</div>
+
+            <h3>Responsive Visibility</h3>
+            <div class="grid grid-2">
+                <div class="card hide-mobile"><p>This card is <strong>hidden on mobile</strong> (below 40rem).</p></div>
+                <div class="card hide-desktop"><p>This card is <strong>hidden on desktop</strong> (above 40rem).</p></div>
+                <div class="card"><p>This card is always visible.</p></div>
+            </div>
+
+            <h3>Loading Spinner</h3>
+            <p>
+                <span class="spinner"></span>
+                <span class="spinner spinner-lg"></span>
+                <button type="button"><span class="spinner" style="width:1rem;height:1rem;border-width:2px"></span> Loading</button>
+            </p>
+        </section>
+
+        <!-- 8. MEDIA -->
+        <section id="media">
+            <h2>Media</h2>
+            <div class="grid grid-2">
+                <figure>
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='800' height='400'%3E%3Crect fill='%23CCC' width='800' height='400'/%3E%3Ctext x='400' y='200' text-anchor='middle' dominant-baseline='middle' font-family='system-ui' font-size='24' fill='%23666'%3E800 x 400%3C/text%3E%3C/svg%3E" alt="Placeholder image">
+                    <figcaption>Fig 1: Responsive image in figure.</figcaption>
+                </figure>
+                <figure>
+                    <audio controls aria-label="Audio placeholder">
+                        <source src="" type="audio/mpeg">
+                        Your browser does not support audio.
+                    </audio>
+                    <figcaption>Fig 2: Audio with native controls.</figcaption>
+                </figure>
+            </div>
+            <figure>
+                <video controls aria-label="Video placeholder">
+                    <source src="" type="video/mp4">
+                    Your browser does not support video.
+                </video>
+                <figcaption>Fig 3: Full-width video element.</figcaption>
+            </figure>
+        </section>
+
+        <!-- 9. ACCESSIBILITY -->
+        <section id="a11y">
+            <h2>Accessibility</h2>
+            <div class="grid grid-2">
+                <div class="card">
+                    <h4>WCAG Compliance</h4>
+                    <ul>
+                        <li>Contrast exceeds AAA 7:1 (14.9:1 light, 13.9:1 dark)</li>
+                        <li>Touch targets: buttons 48px, inputs 40px+</li>
+                        <li><code>prefers-reduced-motion</code> respected</li>
+                        <li><code>prefers-contrast: more</code> supported</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h4>Features</h4>
+                    <ul>
+                        <li>Press <kbd>Tab</kbd> for focus indicators</li>
+                        <li><span class="sr-only">Screen reader only text here</span>Hidden <code>.sr-only</code> span (inspect to verify)</li>
+                        <li>Skip-to-content link on <kbd>Tab</kbd> at page top</li>
+                        <li>CMYK-optimized print stylesheet</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Built with <strong>Ministyle</strong> — 0 dependencies, WCAG AAA, golden-ratio typography.</p>
+        <p><a href="#top">Back to top</a></p>
+    </footer>
+
+</body>
+</html>

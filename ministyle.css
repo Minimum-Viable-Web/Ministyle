@@ -1,0 +1,207 @@
+/* Ministyle v1.0 — Ultra-Minimal Accessible CSS */
+
+/* 1. Tokens + Dark Mode */
+:root{
+  --bg:#EEE;--text:#1A1A1A;--link:#0056B3;
+  --border:#CCC;--card:#FFF;--ok:#2E7D32;--err:#C62828;
+  --r:8px;--mw:80ch;--shadow:0 2px 6px rgba(0,0,0,.08);color-scheme:light dark
+}
+@media(prefers-color-scheme:dark){:root:not(.light-mode){--bg:#121212;--text:#E0E0E0;--link:#8AB4F8;--border:#444;--card:#1E1E1E;--shadow:0 2px 6px rgba(0,0,0,.25);color-scheme:dark}}
+html.dark-mode{--bg:#121212;--text:#E0E0E0;--link:#8AB4F8;--border:#444;--card:#1E1E1E;--shadow:0 2px 6px rgba(0,0,0,.25);color-scheme:dark}
+html.light-mode{color-scheme:light}
+
+/* 2. Reset + Base */
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{background:var(--bg);color:var(--text);font:clamp(1rem,0.5vw + 0.875rem,1.125rem)/1.618 'Open Sans',system-ui,-apple-system,'Segoe UI',sans-serif;margin:0 auto;padding:2rem clamp(1.25rem,3vw,3rem);max-width:var(--mw);overflow-wrap:break-word;-webkit-text-size-adjust:100%}
+
+/* 3. Typography — Golden Ratio (φ=1.618) */
+h1,h2,h3,h4,h5,h6{line-height:1.2;margin:2.5rem 0 1rem}
+h1{font-size:2.618rem} h2{font-size:1.618rem;border-bottom:1px solid var(--border);padding-bottom:.3rem}
+h3{font-size:1.25rem} h4{font-size:1rem} h5{font-size:.875rem} h6{font-size:.875rem;font-style:italic}
+p{margin:0 0 1rem}
+blockquote{border-left:4px solid var(--link);margin:1.5rem 0;padding:.5rem 1rem;font-style:italic}
+mark{background:color-mix(in srgb,var(--link) 20%,transparent);color:inherit;padding:.1rem .3rem;border-radius:2px}
+code,kbd,samp{font-family:ui-monospace,SFMono-Regular,'Cascadia Code',monospace;font-size:.9em;background:rgba(128,128,128,.15);padding:.15rem .4rem;border-radius:var(--r)}
+pre{overflow-x:auto;padding:1rem;background:rgba(128,128,128,.15);border-radius:var(--r);margin:1rem 0}
+pre code{background:none;padding:0}
+kbd{border:1px solid var(--border);box-shadow:0 1px 0 var(--border)}
+small{font-size:85%} hr{border:none;border-top:1px solid var(--border);margin:2rem 0}
+ul,ol{padding-left:1.5rem} li{margin-bottom:.4rem}
+dt{font-weight:700} dd{margin:0 0 1rem 1.5rem}
+abbr[title]{text-decoration:underline dotted;cursor:help}
+
+/* 4. Links + Focus + Skip */
+a{color:var(--link);text-underline-offset:.2rem;transition:color .2s}
+a:hover{color:var(--text)}
+:focus-visible{outline:3px solid var(--link);outline-offset:2px}
+.skip-link{position:absolute;top:-100px;left:10px;background:var(--link);color:#FFF;padding:1rem;z-index:1000;font-weight:700;text-decoration:none}
+.skip-link:focus{top:10px}
+
+/* 5. Forms */
+label{display:block;font-weight:700;margin-bottom:.25rem}
+input,select,textarea{font:inherit;padding:.5rem .75rem;border:1px solid var(--border);border-radius:var(--r);background:var(--card);color:var(--text);width:100%;margin-bottom:1rem;accent-color:var(--link)}
+input:focus,select:focus,textarea:focus{border-color:var(--link)}
+input:invalid:not(:placeholder-shown),textarea:invalid:not(:placeholder-shown){border-left:4px solid var(--err)}
+input:valid:not(:placeholder-shown){border-left:4px solid var(--ok)}
+input:disabled,select:disabled,textarea:disabled{opacity:.55;cursor:not-allowed;background:var(--bg);border-style:dashed}
+button:disabled,[type=submit]:disabled,[type=button]:disabled{opacity:.4;cursor:not-allowed}
+input[type=checkbox],input[type=radio]{width:auto;min-height:auto;margin:0}
+label:has(> input[type=checkbox]),label:has(> input[type=radio]){display:flex;align-items:center;gap:.5rem;font-weight:normal;margin-bottom:.5rem}
+input[type=color]{padding:.25rem;height:44px;width:60px}
+input[type=range]{border:none;padding:0;background:transparent}
+fieldset{border:1px solid var(--border);border-radius:var(--r);padding:1rem;margin:0 0 1.5rem}
+legend{font-weight:700;padding:0 .5rem}
+textarea{resize:vertical;min-height:6rem}
+output{display:inline-block;padding:.25rem .5rem;font-weight:700}
+
+/* 6. Buttons */
+button,[type=submit],[type=reset],[type=button]{font:inherit;display:inline-block;padding:.6rem 1.5rem;border:none;border-radius:var(--r);background:var(--text);color:var(--bg);cursor:pointer;min-height:48px;font-weight:700;transition:opacity .2s;margin:.25rem .5rem .25rem 0}
+button:hover,[type=submit]:hover,[type=button]:hover{opacity:.85}
+button:active,[type=submit]:active,[type=button]:active{transform:translateY(1px)}
+[type=reset]{background:transparent;color:var(--text);border:2px solid var(--border)}
+.btn-sm{padding:.3rem .75rem;min-height:32px;font-size:.875rem}
+.btn-lg{padding:.8rem 2rem;min-height:56px;font-size:1.125rem}
+
+/* 7. Tables */
+table{width:100%;border-spacing:0;border:1px solid var(--border);border-radius:var(--r);margin:1rem 0;overflow:hidden}
+caption{font-weight:700;margin-bottom:.5rem;text-align:left}
+th,td{padding:.75rem;border-bottom:1px solid var(--border);border-right:1px solid var(--border);text-align:left}
+th:last-child,td:last-child{border-right:none}
+tr:last-child th,tr:last-child td{border-bottom:none}
+th{background:rgba(128,128,128,.12);font-weight:700}
+tbody tr:nth-child(even){background:rgba(128,128,128,.06)}
+
+/* 8. Media */
+img,video{max-width:100%;height:auto;border-radius:var(--r)}
+audio{display:block;width:100%}
+figure{margin:1.5rem 0;padding:1rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:var(--shadow)}
+figure>img,figure>video,figure>audio{display:block;width:100%}
+figcaption{font-size:.9rem;opacity:.7;margin-top:.5rem}
+
+/* 9. Cards */
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:1.5rem;margin-bottom:1.5rem;box-shadow:var(--shadow)}
+.card>:first-child{margin-top:0} .card>:last-child{margin-bottom:0}
+
+/* 10. Tabs (CSS-only) */
+.tabs{border-bottom:2px solid var(--border);margin-bottom:1.5rem}
+.tabs>input{display:none} .tabs>label{display:inline-block;padding:.6rem 1.2rem;cursor:pointer;border-bottom:3px solid transparent;font-weight:700;margin-bottom:-2px}
+.tabs>input:checked+label{border-bottom-color:var(--link);color:var(--link)}
+.tabs>div{display:none;padding:1rem 0}
+.tabs>input:nth-of-type(1):checked~div:nth-of-type(1),.tabs>input:nth-of-type(2):checked~div:nth-of-type(2),.tabs>input:nth-of-type(3):checked~div:nth-of-type(3),.tabs>input:nth-of-type(4):checked~div:nth-of-type(4){display:block}
+
+/* 11. Pagination */
+.pagination{display:flex;gap:.25rem;list-style:none;padding:0;margin:1.5rem 0;flex-wrap:wrap}
+.pagination a,.pagination span{display:flex;align-items:center;padding:.5rem .85rem;border:1px solid var(--border);border-radius:var(--r);text-decoration:none;min-height:44px}
+.pagination a:hover{background:rgba(128,128,128,.1)} .pagination [aria-current=page]{background:var(--text);color:var(--bg);border-color:var(--text);font-weight:700}
+
+/* 12. Badges */
+.badge{display:inline-block;padding:.15rem .5rem;font-size:.75rem;font-weight:700;border-radius:1rem;background:var(--text);color:var(--bg);vertical-align:middle;line-height:1.5}
+.badge-ok{background:var(--ok);color:#FFF} .badge-err{background:var(--err);color:#FFF} .badge-outline{background:transparent;color:var(--text);border:1px solid var(--border)}
+
+/* 13. Alerts */
+.alert{padding:1rem;border-radius:var(--r);border-left:4px solid var(--border);margin-bottom:1.5rem;background:rgba(128,128,128,.08)}
+.alert-ok{border-left-color:var(--ok);background:color-mix(in srgb,var(--ok) 10%,transparent)}
+.alert-err{border-left-color:var(--err);background:color-mix(in srgb,var(--err) 10%,transparent)}
+.alert-warn{border-left-color:#B8860B;background:color-mix(in srgb,#B8860B 10%,transparent)}
+.alert-info{border-left-color:var(--link);background:color-mix(in srgb,var(--link) 10%,transparent)}
+
+/* 14. Breadcrumbs */
+.breadcrumb{display:flex;gap:.5rem;list-style:none;padding:0;margin:1rem 0;flex-wrap:wrap}
+.breadcrumb li+li::before{content:"/";margin-right:.5rem;opacity:.5}
+.breadcrumb [aria-current=page]{font-weight:700;color:var(--text);text-decoration:none}
+
+/* 15. Tooltips (CSS-only) */
+[data-tooltip]{position:relative;cursor:help}
+[data-tooltip]::after{content:attr(data-tooltip);position:absolute;bottom:calc(100% + .4rem);left:50%;transform:translateX(-50%);padding:.4rem .7rem;background:var(--text);color:var(--bg);font-size:.8rem;border-radius:var(--r);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .2s;z-index:100}
+[data-tooltip]:hover::after,[data-tooltip]:focus::after{opacity:1}
+
+/* 16. Grid */
+.grid{display:grid;gap:1.5rem;margin-bottom:1.5rem}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(min(100%,18rem),1fr))}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(min(100%,12rem),1fr))}
+
+/* 17. Container Queries */
+.contain{container-type:inline-size}
+@container (max-width:20rem){.contain .card{padding:1rem} .contain h3,.contain h4{font-size:1rem}}
+@container (min-width:30rem){.contain .grid-2,.contain .grid-3{gap:2rem} .contain .form-row>label{min-width:12ch}}
+
+/* 18. Interactive */
+details{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:.5rem 1rem;margin-bottom:.5rem;box-shadow:var(--shadow)}
+summary{cursor:pointer;font-weight:700;padding:.5rem 0}
+dialog{border:1px solid var(--border);border-radius:var(--r);padding:2rem;max-width:min(90vw,50ch);background:var(--card);color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,.15)}
+dialog::backdrop{background:rgba(0,0,0,.5)}
+progress,meter{display:block;width:100%;height:1.5rem;accent-color:var(--link);border-radius:var(--r);overflow:hidden;margin-bottom:1rem}
+
+/* 19. Layout */
+header{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:2px solid var(--border);padding:.75rem 0;margin-bottom:2rem}
+nav{display:flex;align-items:center;gap:1rem;flex-wrap:wrap}
+nav ul{display:flex;gap:1.5rem;list-style:none;padding:0;margin:0;flex:1}
+nav li{margin:0}
+section{margin-bottom:3rem} article{margin-bottom:2rem}
+footer{margin-top:4rem;border-top:1px solid var(--border);padding-top:2rem}
+aside{padding:1rem;background:var(--card);border-left:4px solid var(--link);border-radius:var(--r);margin:1.5rem 0}
+address{font-style:normal;margin:1rem 0}
+
+/* 20. Compact Forms */
+.form-row{display:flex;align-items:center;gap:.75rem;margin-bottom:.5rem}
+.form-row>label{margin:0;white-space:nowrap;min-width:8ch}
+.form-row>input,.form-row>select,.form-row>textarea{margin:0}
+
+/* 21. Color Utilities */
+.text-ok{color:var(--ok)} .text-err{color:var(--err)} .text-link{color:var(--link)} .text-warn{color:#B8860B}
+.bg-ok{background:color-mix(in srgb,var(--ok) 12%,transparent)} .bg-err{background:color-mix(in srgb,var(--err) 12%,transparent)}
+.bg-link{background:color-mix(in srgb,var(--link) 12%,transparent)} .bg-warn{background:color-mix(in srgb,#B8860B 12%,transparent)}
+
+/* 22. Spacing Utilities */
+.m-0{margin:0} .m-1{margin:.25rem} .m-2{margin:.5rem} .m-3{margin:1rem} .m-4{margin:2rem}
+.mt-0{margin-top:0} .mt-1{margin-top:.25rem} .mt-2{margin-top:.5rem} .mt-3{margin-top:1rem} .mt-4{margin-top:2rem}
+.mb-0{margin-bottom:0} .mb-1{margin-bottom:.25rem} .mb-2{margin-bottom:.5rem} .mb-3{margin-bottom:1rem} .mb-4{margin-bottom:2rem}
+.p-0{padding:0} .p-1{padding:.25rem} .p-2{padding:.5rem} .p-3{padding:1rem} .p-4{padding:2rem}
+
+/* 23. Display & Width */
+.hidden{display:none} .block{display:block} .inline{display:inline} .flex{display:flex} .inline-flex{display:inline-flex}
+.w-full{width:100%} .w-auto{width:auto}
+
+/* 24. Text Alignment */
+.text-left{text-align:left} .text-center{text-align:center} .text-right{text-align:right}
+
+/* 25. Button Variants */
+.btn-outline{background:transparent;color:var(--text);border:2px solid var(--border)}
+.btn-outline:hover{background:rgba(128,128,128,.1)}
+
+/* 26. Divider */
+.divider{display:flex;align-items:center;gap:1rem;margin:2rem 0;color:var(--text);opacity:.5}
+.divider::before,.divider::after{content:"";flex:1;border-top:1px solid var(--border)}
+
+/* 27. Responsive Visibility */
+@media(max-width:40rem){.hide-mobile{display:none!important} .show-mobile{display:block!important}}
+@media(min-width:40.01rem){.hide-desktop{display:none!important} .show-desktop{display:block!important}}
+
+/* 28. Spinner */
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{display:inline-block;width:1.5rem;height:1.5rem;border:3px solid var(--border);border-top-color:var(--link);border-radius:50%;animation:spin .6s linear infinite;vertical-align:middle}
+.spinner-lg{width:2.5rem;height:2.5rem;border-width:4px}
+
+/* 29. Toast (CSS-only) */
+.toast-toggle{position:absolute;opacity:0;pointer-events:none}
+.toast{position:fixed;bottom:2rem;right:2rem;padding:1rem 2.5rem 1rem 1rem;background:var(--card);border:1px solid var(--border);border-radius:var(--r);box-shadow:0 4px 12px rgba(0,0,0,.15);opacity:0;transform:translateY(1rem);transition:opacity .3s,transform .3s;pointer-events:none;z-index:1000;max-width:min(90vw,30ch)}
+.toast-toggle:checked+.toast{opacity:1;transform:translateY(0);pointer-events:auto}
+.toast .toast-close{position:absolute;top:.25rem;right:.5rem;background:none;border:none;color:inherit;font-size:1.2rem;cursor:pointer;opacity:.5;padding:.25rem;min-height:auto;margin:0}
+.toast .toast-close:hover{opacity:1}
+
+/* 30. Print */
+@media print{
+  body{max-width:100%;padding:0;color:#000;background:#FFF}
+  *{box-shadow:none!important;text-shadow:none!important}
+  a{color:#00437A} a[href^="http"]::after{content:" (" attr(href) ")";font-size:.8em;opacity:.7}
+  header,nav,.skip-link,button,[type=submit],[type=reset],[type=button],.toast,.toast-toggle,.pagination,.spinner{display:none!important}
+  h1,h2,h3,h4,h5,h6{break-after:avoid;color:#000} img,figure,table,pre{break-inside:avoid}
+  table{border-color:#000} th{background:#DDD} .badge{border:1px solid #000}
+  .alert{border-left-color:#000;background:#F5F5F5} details{border-color:#999}
+}
+
+/* 31. Accessibility */
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+@media(prefers-contrast:more){*{border-color:var(--text)!important}:root{--border:currentColor}}

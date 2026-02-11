@@ -69,7 +69,13 @@ Ultra-minimal, accessible CSS. Classless-first styling with a small set of utili
 
 ## Install
 
-**npm:**
+**GitHub Packages** (npm-compatible). Add a project `.npmrc` or global config so the scope uses GitHub's registry:
+
+```
+@minimum-viable-web:registry=https://npm.pkg.github.com
+```
+
+Authenticate with a [personal access token](https://github.com/settings/tokens) (read:packages), then:
 
 ```bash
 npm install @minimum-viable-web/ministyle
@@ -130,11 +136,7 @@ Override CSS custom properties in your own stylesheet or inline:
 
 ## Publishing (maintainers)
 
-To publish to npm on each GitHub release:
-
-1. Create an [npm access token](https://www.npmjs.com/settings/~/tokens) (Automation type).
-2. In the repo: **Settings → Secrets and variables → Actions** → New repository secret → name `NPM_TOKEN`, value = token.
-3. Create a release (e.g. tag `v1.0.0`); the **Publish to npm** workflow will run and publish.
+Publish to GitHub Packages by pushing a version tag (e.g. `v1.0.0`) or running the **Publish Package** workflow manually. Uses `GITHUB_TOKEN`; no extra secrets.
 
 ## License
 

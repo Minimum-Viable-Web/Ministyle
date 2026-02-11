@@ -10,5 +10,8 @@
     "type": "git",
     "url": "https://github.com/Minimum-Viable-Web/ministyle.git"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "keywords": ["css", "stylesheet", "minimal", "accessibility", "classless", "dark-mode"]
 }

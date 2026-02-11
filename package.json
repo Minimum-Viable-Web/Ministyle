@@ -1,0 +1,14 @@
+{
+  "name": "@minimum-viable-web/ministyle",
+  "version": "1.0.0",
+  "description": "Ultra-minimal, accessible CSS. Classless-first, no JS, no build.",
+  "style": "ministyle.css",
+  "main": "ministyle.css",
+  "files": ["ministyle.css"],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Minimum-Viable-Web/ministyle.git"
+  },
+  "keywords": ["css", "stylesheet", "minimal", "accessibility", "classless", "dark-mode"]
+}

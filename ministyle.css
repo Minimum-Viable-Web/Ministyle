@@ -131,7 +131,16 @@ details{background:var(--card);border:1px solid var(--border);border-radius:var(
 summary{cursor:pointer;font-weight:700;padding:.5rem 0}
 dialog{border:1px solid var(--border);border-radius:var(--r);padding:2rem;max-width:min(90vw,50ch);background:var(--card);color:var(--text);box-shadow:0 8px 24px rgba(0,0,0,.15)}
 dialog::backdrop{background:rgba(0,0,0,.5)}
-progress,meter{display:block;width:100%;height:1.5rem;accent-color:var(--link);border-radius:var(--r);overflow:hidden;margin-bottom:1rem}
+progress,meter{display:block;width:100%;height:1.5rem;border-radius:var(--r);overflow:hidden;margin-bottom:1rem;border:none;appearance:none;-webkit-appearance:none;-moz-appearance:none}
+progress{background:rgba(128,128,128,.15)}
+meter{background:none}
+progress::-webkit-progress-bar{border-radius:var(--r);background:rgba(128,128,128,.15)}
+progress::-webkit-progress-value{border-radius:var(--r);background:var(--link)}
+progress::-moz-progress-bar{border-radius:var(--r);background:var(--link)}
+meter::-webkit-meter-bar{border-radius:var(--r);background:rgba(128,128,128,.15);border:none;box-shadow:none}
+meter::-webkit-meter-inner-element{border:none;border-radius:var(--r)}
+meter::-webkit-meter-optimum-value,meter::-webkit-meter-suboptimum-value,meter::-webkit-meter-even-less-good-value{border-radius:var(--r)}
+meter::-webkit-meter-optimum-value{background:var(--ok)} meter::-webkit-meter-suboptimum-value{background:#B8860B} meter::-webkit-meter-even-less-good-value{background:var(--err)}
 
 /* 19. Layout */
 header{position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:2px solid var(--border);padding:.75rem 0;margin-bottom:2rem}

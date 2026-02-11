@@ -1,4 +1,5 @@
 # Ministyle
+[![Publish Package](https://github.com/Minimum-Viable-Web/Ministyle/actions/workflows/publish.yml/badge.svg)](https://github.com/Minimum-Viable-Web/Ministyle/actions/workflows/publish.yml)
 
 Ultra-minimal, accessible CSS. Classless-first styling with a small set of utility classes. No JS, no build step.
 
